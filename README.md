@@ -1,2 +1,31 @@
-# ustoztop
-Telegram bot built with Django and Telebot
+# UztozTopBot
+## Telegram bot built with Django and Telebot
+### live at https://t.me/ustoztopbot
+
+### First get the repo on your machine:
+```bash
+$ git clone https://github.com/azimjohn/ustoztop.git
+```
+
+
+### Then install requirements:
+```bash
+$ pip install -r requirements.txt
+```
+
+### Make the migrations and apply them:
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+### Export the bot token, replace `REPLACE_ME` with your bot's token
+```bash
+$ export BOT_TOKEN=REPLACE_ME
+```
+
+### Finally, run the server
+```bash
+$ python manage.py runserver
+```
+
