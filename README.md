@@ -2,8 +2,9 @@
 ## Telegram bot built with Django and Telebot
 ### live at https://t.me/ustoztopbot
 
-![alt text](https://raw.githubusercontent.com/azimjohn/ustoztop/master/screen.png)
-
+<p align="center">
+ <img src="https://raw.githubusercontent.com/azimjohn/ustoztop/master/screen.png" width="500">
+</p>
 
 ### First get the repo on your machine:
 ```bash
