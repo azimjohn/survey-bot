@@ -2,6 +2,9 @@
 ## Telegram bot built with Django and Telebot
 ### live at https://t.me/ustoztopbot
 
+![alt text](https://raw.githubusercontent.com/azimjohn/ustoztop/master/screen.png)
+
+
 ### First get the repo on your machine:
 ```bash
 $ git clone https://github.com/azimjohn/ustoztop.git
