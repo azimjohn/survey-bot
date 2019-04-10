@@ -28,7 +28,7 @@ $ python manage.py migrate
 $ export BOT_TOKEN=REPLACE_ME
 ```
 
-### Finally, run the server
+### Finally, run the server 🎉
 ```bash
 $ python manage.py runserver
 ```
