@@ -29,3 +29,20 @@ class Post(models.Model):
 
     def __str__(self):
         return "{} - {} - {} - {}".format(self.pk, self.is_published, self.region, self.subject)
+
+
+class StepInfo(models.Model):
+    chat_id = models.IntegerField()
+    user_id = models.IntegerField(null=True)
+    username = models.CharField(blank=True, max_length=128, null=True)
+    first_name = models.CharField(blank=True, max_length=128, null=True)
+    last_name = models.CharField(blank=True, max_length=128, null=True)
+    step = models.SmallIntegerField(default=0)
+
+    language = models.CharField(blank=True, max_length=128, null=True)
+    type = models.CharField(blank=True, max_length=128, null=True)
+    subject = models.CharField(blank=True, max_length=128, null=True)
+    region = models.CharField(blank=True, max_length=128, null=True)
+    district = models.CharField(blank=True, max_length=128, null=True)
+    price = models.CharField(blank=True, max_length=128, null=True)
+    phone = models.CharField(blank=True, max_length=128, null=True)
