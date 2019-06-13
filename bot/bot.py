@@ -25,7 +25,7 @@ def ask_language(message):
     step_info.first_name = message.from_user.first_name
     step_info.last_name = message.from_user.last_name
 
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
     markup.add(
         telebot.types.KeyboardButton(R.UZBEK),
         telebot.types.KeyboardButton(R.RUSSIAN)
@@ -49,7 +49,7 @@ def ask_type(message):
 
     lang = step_info.language
 
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
     markup.add(
         telebot.types.KeyboardButton(R.MESSAGES[lang]['STUDENT']),
         telebot.types.KeyboardButton(R.MESSAGES[lang]['TEACHER'])
@@ -66,7 +66,7 @@ def ask_subject(message):
     step_info.step = 2
 
     lang = step_info.language or 'RU'
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
 
     subjects = R.MESSAGES[lang]['SUBJECTS']
     for subject in subjects:
@@ -93,7 +93,7 @@ def ask_region(message):
 
     step_info.subject = message.text
 
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
     regions = R.MESSAGES[lang]['REGIONS']
     for region in regions:
         markup.add(
@@ -114,7 +114,7 @@ def ask_district(message):
 
     step_info.region = message.text
 
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
 
     regions = R.MESSAGES[lang]['REGIONS']
     for region in regions:
@@ -136,7 +136,7 @@ def ask_price(message):
 
     lang = step_info.language or 'RU'
 
-    markup = telebot.types.ReplyKeyboardMarkup()
+    markup = telebot.types.ReplyKeyboardMarkup(True, False)
 
     step_info.district = message.text
 
