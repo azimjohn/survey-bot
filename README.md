@@ -1,6 +1,6 @@
-# UztozTopBot
-## Telegram bot built with Django and Telebot
-### live at https://t.me/ustoztopbot
+# SurveyBot
+## Telegram bot for Survey built with Django and Telebot
+### example bot built with survey-bot: https://t.me/ustoztopbot
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/azimjohn/ustoztop/master/screen.png" width="500">
@@ -8,7 +8,7 @@
 
 ### First get the repo on your machine:
 ```bash
-$ git clone https://github.com/azimjohn/ustoztop.git
+$ git clone https://github.com/azimjohn/survey-bot.git
 ```
 
 
