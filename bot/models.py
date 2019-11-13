@@ -3,9 +3,10 @@ from django.db import models
 
 
 class Respondent(models.Model):
-    name = models.CharField(max_length=128, blank=True)
     user_id = models.IntegerField(null=True)
-    step = models.SmallIntegerField(default=0)
-    username = models.CharField(blank=True, max_length=128)
+    first_name = models.CharField(max_length=128, blank=True)
+    last_name = models.CharField(max_length=128, blank=True)
+    username = models.CharField(max_length=128, blank=True)
 
+    step = models.SmallIntegerField(default=0)
     details = jsonfield.JSONField(max_length=8192, default=dict)
