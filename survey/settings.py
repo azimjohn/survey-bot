@@ -54,5 +54,5 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+STATIC_URL = '/static/'
 TOKEN = os.environ.get("BOT_TOKEN")
