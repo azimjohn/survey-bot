@@ -6,5 +6,7 @@ admin.site.site_header = 'SurveyBot Admin'
 
 @admin.register(Respondent)
 class RespondentAdmin(admin.ModelAdmin):
-    list_display = ("first_name", "last_name", "username", "step")
     search_fields = ("first_name", "last_name", "username")
+    fields = ("first_name", "last_name", "username", "response")
+    list_display = ("first_name", "last_name", "username", "step")
+    readonly_fields = ("first_name", "last_name", "username", "response")

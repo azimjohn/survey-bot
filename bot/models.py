@@ -1,5 +1,6 @@
 import jsonfield
 from django.db import models
+from django.utils.html import format_html
 
 
 class Respondent(models.Model):
@@ -10,3 +11,19 @@ class Respondent(models.Model):
 
     step = models.SmallIntegerField(default=0)
     details = jsonfield.JSONField(max_length=8192, default=dict)
+
+    @property
+    def response(self):
+        table = "<table class='table'>"
+
+        for question in self.details:
+            answer = self.details[question]
+            table += f"""
+                <tr>
+                    <td>{question}</td>
+                    <td><b>{answer}</b></td>
+                </tr>
+            """
+
+        table += "</table>"
+        return format_html(table)
