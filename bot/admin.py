@@ -18,4 +18,5 @@ class RespondentAdmin(admin.ModelAdmin):
     fields = ("first_name", "last_name", "username", "completed_responses_count")
     list_display = ("first_name", "last_name", "username", "completed_responses_count")
     readonly_fields = ("first_name", "last_name", "username", "completed_responses_count")
+    list_select_related = ("responses",)
     inlines = (ResponseInline,)
