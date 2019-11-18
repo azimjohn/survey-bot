@@ -7,6 +7,8 @@ from .models import Respondent
 
 bot = telebot.TeleBot(settings.TOKEN, num_threads=5)
 number_of_questions = len(QUESTIONS)
+start_command = "/start"
+restart_command = "Отправить еще один отзыв"
 
 
 def markup_choices(choices):
@@ -28,24 +30,33 @@ def handler(message):
             "first_name": message.from_user.first_name or "",
             "last_name": message.from_user.last_name or "",
             "username": message.from_user.username or "",
-            "step": 0,
         }
     )
 
-    if number_of_questions >= registrant.step >= 1:
-        prev_question = QUESTIONS[registrant.step - 1]["text"]
-        registrant.details[prev_question] = message.text
-        registrant.save(update_fields=["details"])
+    response = registrant.responses.filter(completed=False).last()
+    if not response or message.text in [start_command, restart_command]:
+        response = registrant.responses.create()
 
-    if registrant.step >= number_of_questions:
-        bot.send_message(registrant.user_id, "Готово. Спасибо за участие.", reply_markup=markup_choices([]))
+    if number_of_questions >= response.step >= 1:
+        prev_question = QUESTIONS[response.step - 1]["text"]
+        response.details[prev_question] = message.text
+        response.save(update_fields=["details"])
+
+    if response.step >= number_of_questions:
+        response.completed = True
+        response.save(update_fields=["completed"])
+        bot.send_message(
+            registrant.user_id,
+            "Готово. Спасибо за участие.",
+            reply_markup=markup_choices([restart_command])
+        )
         return
 
-    question = QUESTIONS[registrant.step]
+    question = QUESTIONS[response.step]
     text = question["text"]
     choices = question.get("choices") or []
 
     bot.send_message(registrant.user_id, text, reply_markup=markup_choices(choices))
 
-    registrant.step += 1
-    registrant.save(update_fields=["step"])
+    response.step += 1
+    response.save(update_fields=["step"])

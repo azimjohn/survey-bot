@@ -9,11 +9,15 @@ class Respondent(models.Model):
     last_name = models.CharField(max_length=128, blank=True)
     username = models.CharField(max_length=128, blank=True)
 
+    @property
+    def completed_responses_count(self):
+        return self.responses.filter(completed=True).count()
+
 
 class Response(models.Model):
     step = models.SmallIntegerField(default=0)
     details = jsonfield.JSONField(max_length=8192, default=dict)
-    respondent = models.ForeignKey(Respondent, on_delete=models.CASCADE)
+    respondent = models.ForeignKey(Respondent, related_name="responses", on_delete=models.CASCADE)
 
     completed = models.BooleanField(default=False)
 
