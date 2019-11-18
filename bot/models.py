@@ -9,11 +9,16 @@ class Respondent(models.Model):
     last_name = models.CharField(max_length=128, blank=True)
     username = models.CharField(max_length=128, blank=True)
 
+
+class Response(models.Model):
     step = models.SmallIntegerField(default=0)
     details = jsonfield.JSONField(max_length=8192, default=dict)
+    respondent = models.ForeignKey(Respondent, on_delete=models.CASCADE)
+
+    completed = models.BooleanField(default=False)
 
     @property
-    def response(self):
+    def html(self):
         table = "<table class='table'>"
 
         for question in self.details:
