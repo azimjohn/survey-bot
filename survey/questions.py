@@ -1,25 +1,25 @@
 QUESTIONS = [
     {
-      "text": "Напишите название мероприятия.",
+      "text": "What's your name?",
     },
     {
-        "text": "Оцените, как было организованно мероприятие?",
-        "choices": [1, 2, 3, 4, 5]
+        "text": "How old are you?",
+        "choices": ["-18", "18-25", "25-30", "30+"]
     },
     {
-        "text": "Оцените насколько вам было полезно выступление докладчика?",
+        "text": "How do you rate our app?",
         "choices": [1, 2, 3, 4, 5],
     },
     {
-        "text": "Что бы вы посоветовали организаторам GEW?"
+        "text": "How can we make it better?"
     },
     {
-        "text": "Откуда вы узнали о данном мероприятии?",
+        "text": "Where did you hear about us?",
         "choices": [
             "Telegram",
             "Facebook",
             "Instagram",
-            "Другие",
+            "Other",
         ]
     },
 ]
