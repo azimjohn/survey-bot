@@ -1,6 +1,5 @@
 # SurveyBot
-## Telegram bot for Survey built with Django and Telebot
-### example bot built with survey-bot: https://t.me/ustoztopbot
+## Telegram bot for Surveys built with Django and Telebot
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/azimjohn/ustoztop/master/screen.png" width="500">
